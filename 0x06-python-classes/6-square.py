@@ -5,7 +5,7 @@
 class Square:
     """square whit size"""
 
-    def  __init__(self, size=0, position=(0, 0)):
+    def __init__(self, size=0, position=(0, 0)):
         """optional"""
         self.__size = size
         self.__position = position
@@ -29,7 +29,6 @@ class Square:
         """return pos"""
         return self.__position
 
-
     @position.setter
     def position(self, value):
         """checks"""
@@ -45,7 +44,7 @@ class Square:
 
     def my_print(self):
         """print square"""
-        if self.size == 0:
+        if self.__size == 0:
             print("")
         else:
             for n in range(self.__position[1]):

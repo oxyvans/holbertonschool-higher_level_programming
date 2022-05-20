@@ -1,0 +1,46 @@
+-----import function-----
+
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+
+
+-----error tests add_integer-----
+
+>>> say_my_name()
+Traceback (most recent call last):
+TypeError: say_my_name() missing 1 required positional argument: 'first_name'
+
+>>> say_my_name(1234)
+Traceback (most recent call last):
+TypeError: first_name must be a string
+
+>>> say_my_name("benjamin", 1234)
+Traceback (most recent call last):
+TypeError: last_name must be a string
+
+>>> say_my_name(None)
+Traceback (most recent call last):
+TypeError: first_name must be a string
+
+>>> say_my_name(None, None)
+Traceback (most recent call last):
+TypeError: first_name must be a string
+
+-----general tests-----
+
+>>> say_my_name("benja")
+My name is benja 
+
+>>> say_my_name("benja", "gutierrez")
+My name is benja gutierrez
+
+>>> say_my_name("", "")
+My name is  
+
+>>> say_my_name("", "gutierrez")
+My name is  gutierrez
+
+>>> say_my_name(" ", "gutierrez")
+My name is   gutierrez
+
+>>> say_my_name("b3nja", "gut1errez")
+My name is b3nja gut1errez

@@ -1,0 +1,50 @@
+-----import function-----
+
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+
+-----error tests text_indentation-----
+
+>>> text_indentation()
+Traceback (most recent call last):
+TypeError: text_indentation() missing 1 required positional argument: 'text'
+
+>>> text_indentation(None)
+Traceback (most recent call last):
+TypeError: text must be a string
+
+>>> text_indentation(1234)
+Traceback (most recent call last):
+TypeError: text must be a string
+
+>>> text_indentation('a')
+Traceback (most recent call last):
+TypeError: text must be a string
+
+-----general tests-----
+
+>>> text_indentation(".")
+.
+<BLANKLINE>
+
+>>> text_indentation("?")
+?
+<BLANKLINE>
+
+>>> text_indentation(":")
+:
+<BLANKLINE>
+
+>>> text_indentation("a.?a:")
+a.
+<BLANKLINE>
+?
+<BLANKLINE>
+a:
+<BLANKLINE>
+
+>>> text_indentation("holberton is a best school?   yes.")
+holberton is a best school?
+<BLANKLINE>
+yes.
+<BLANKLINE>

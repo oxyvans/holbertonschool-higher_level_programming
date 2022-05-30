@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-    """tasks"""
+"""tasks"""
 
 
 def lookup(obj):

@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-"""function"""
+"""Inheritance"""
 
 
 def add_attribute(mc, name, other):
-    """adds attribute"""
+    """attribute"""
     if hasattr(mc, '__dict__'):
         setattr(mc, name, other)
     else:

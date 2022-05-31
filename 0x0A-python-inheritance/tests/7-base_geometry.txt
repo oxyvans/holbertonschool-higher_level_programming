@@ -1,55 +1,86 @@
->>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+#import module
 
->>> BaseGeometry = BaseGeometry()
+	>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
->>> BaseGeometry.integer_validator("zero", 0)
-Traceback (most recent call last):
-ValueError: zero must be greater than 0
+#documentation
 
->>> BaseGeometry.integer_validator("negative", -10)
-Traceback (most recent call last):
-ValueError: negative must be greater than 0
+	>>> module_doc = __import__('7-base_geometry').__doc__
+	>>> print(len(module_doc) > 0)
+	True
 
->>> BaseGeometry.integer_validator("float", 1.0)
-Traceback (most recent call last):
-TypeError: float must be an integer
+	>>> class_doc = __import__('7-base_geometry').BaseGeometry.__doc__
+	>>> print(len(class_doc) > 0)
+	True
 
->>> BaseGeometry.integer_validator("negative_float", -1.0)
-Traceback (most recent call last):
-TypeError: negative_float must be an integer
+	>>> function_doc = __import__('7-base_geometry').BaseGeometry.area.__doc__
+	>>> print(len(function_doc) > 0)
+	True
 
->>> BaseGeometry.integer_validator("boolean", True)
-Traceback (most recent call last):
-TypeError: boolean must be an integer
+	>>> function_doc = __import__('7-base_geometry').BaseGeometry.integer_validator.__doc__
+	>>> print(len(function_doc) > 0)
+	True
 
->>> BaseGeometry.integer_validator("list", [0, 1, 2, 3])
-Traceback (most recent call last):
-TypeError: list must be an integer
+#general test
 
->>> BaseGeometry.integer_validator("set", set([0, 1, 2, 3]))
-Traceback (most recent call last):
-TypeError: set must be an integer
+	>>> bgeo = BaseGeometry()
+	>>> bgeo.integer_validator("lenght", 5)
 
->>> BaseGeometry.integer_validator("touple", (0, 1))
-Traceback (most recent call last):
-TypeError: touple must be an integer
+	>>> bgeo = BaseGeometry()
+	>>> bgeo.integer_validator("lenght", 50000000)
 
->>> BaseGeometry.integer_validator("string", "Holberton")
-Traceback (most recent call last):
-TypeError: string must be an integer
+	>>> bgeo = BaseGeometry()
+	>>> bgeo.integer_validator()
+	Traceback (most recent call last):
+	TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
 
->>> BaseGeometry.integer_validator("None", None)
-Traceback (most recent call last):
-TypeError: None must be an integer
+	>>> bgeo = BaseGeometry()
+	>>> bgeo.integer_validator(5)
+	Traceback (most recent call last):
+	TypeError: integer_validator() missing 1 required positional argument: 'value'
 
->>> BaseGeometry.integer_validator()
-Traceback (most recent call last):
-TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+	>>> bgeo = BaseGeometry()
+	>>> bgeo.integer_validator("x")
+	Traceback (most recent call last):
+	TypeError: integer_validator() missing 1 required positional argument: 'value'
 
->>> BaseGeometry.area()
-Traceback (most recent call last):
-Exception: area() is not implemented
+	>>> bgeo = BaseGeometry()
+	>>> bgeo.integer_validator(1, 2, 3)
+	Traceback (most recent call last):
+	TypeError: integer_validator() takes 3 positional arguments but 4 were given
 
->>> BaseGeometry.area(0)
-Traceback (most recent call last):
-TypeError: area() takes 1 positional argument but 2 were given
+	>>> bgeo = BaseGeometry()
+	>>> bgeo.integer_validator("x", 2.5)
+	Traceback (most recent call last):
+	TypeError: x must be an integer
+
+	>>> bgeo = BaseGeometry()
+	>>> bgeo.integer_validator("x", None)
+	Traceback (most recent call last):
+	TypeError: x must be an integer
+
+	>>> bgeo = BaseGeometry()
+	>>> bgeo.integer_validator("x", float('NaN'))
+	Traceback (most recent call last):
+	TypeError: x must be an integer
+
+	>>> bgeo = BaseGeometry()
+	>>> bgeo.integer_validator("x", False)
+	Traceback (most recent call last):
+	TypeError: x must be an integer
+
+	>>> bgeo = BaseGeometry()
+	
+	>>> bgeo = BaseGeometry()
+	>>> bgeo.integer_validator("x", -3)
+	Traceback (most recent call last):
+	ValueError: x must be greater than 0
+
+	>>> bgeo = BaseGeometry()
+	>>> bgeo.integer_validator("x", 0)
+	Traceback (most recent call last):
+	ValueError: x must be greater than 0
+
+	>>> bgeo = BaseGeometry()
+	>>> bgeo.area()
+	Traceback (most recent call last):
+	Exception: area() is not implemented

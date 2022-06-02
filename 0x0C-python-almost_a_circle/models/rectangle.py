@@ -15,3 +15,39 @@ class Rectangle(Base):
         self.height = height
         self.x = x
         self.y = y
+
+    @property
+    def width(self):
+        """return width"""
+        return self.__width
+
+    @width.setter
+    def width(self, width):
+        """ validation """
+
+    @property
+    def height(self):
+        """return height"""
+        return self.__height
+
+    @height.setter
+    def height(self, height):
+        """ validation """
+
+    @property
+    def x(self):
+        """return x"""
+        return self.__x
+
+    @x.setter
+    def x(self, x):
+        """ validation """
+
+    @property
+    def y(self):
+        """return y"""
+        return self.__y
+
+    @y.setter
+    def y(self, y):
+        """ validation """	

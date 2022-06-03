@@ -16,6 +16,20 @@ class Rectangle(Base):
         self.x = x
         self.y = y
 
+    def validation_pos(self, name, value):
+        """ validaton pos """
+        if type(value) is not int:
+            raise TypeError("{} must be an integer".format(name))
+        if value < 0:
+            raise ValueError("{} must be >= 0".format(name))
+
+    def validation_size(self, name, value):
+        """ validaton size """
+        if type(value) is not int:
+            raise TypeError("{} must be an integer".format(name))
+        if value <= 0:
+            raise ValueError("{} must be > 0".format(name))
+
     @property
     def width(self):
         """return width"""
@@ -24,6 +38,8 @@ class Rectangle(Base):
     @width.setter
     def width(self, width):
         """ validation """
+        self.validation_size("width", width)
+        self.__width = width
 
     @property
     def height(self):
@@ -33,6 +49,8 @@ class Rectangle(Base):
     @height.setter
     def height(self, height):
         """ validation """
+        self.validation_size("height", height)
+        self.__height = height
 
     @property
     def x(self):
@@ -42,6 +60,8 @@ class Rectangle(Base):
     @x.setter
     def x(self, x):
         """ validation """
+        self.validation_pos("x", x)
+        self.__x = x
 
     @property
     def y(self):
@@ -50,4 +70,6 @@ class Rectangle(Base):
 
     @y.setter
     def y(self, y):
-        """ validation """	
+        """ validation """
+        self.validation_pos("y", y)
+        self.__y = y

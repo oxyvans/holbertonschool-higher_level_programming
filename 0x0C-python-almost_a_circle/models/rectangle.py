@@ -80,7 +80,6 @@ class Rectangle(Base):
 
     def display(self):
         """ display """
-
         if (self.width == 0 or self.height == 0):
             print("")
         else:
@@ -98,4 +97,12 @@ class Rectangle(Base):
         return ("[Rectangle] ({}) {}/{} - {}/{}".format
                 (self.id, self.x, self.y, self.width, self.height))
 
-    
+    def update(self, *args, **kwargs):
+        """ update """
+        if args and len(args) > 0:
+            elem = ["id", "width", "height", "x", "y"]
+            for i, j in enumerate(args):
+                setattr(self, elem[i], j)
+        else:
+            for k, l in kwargs.items():
+                setattr(self, k, l)

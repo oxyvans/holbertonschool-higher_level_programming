@@ -80,10 +80,22 @@ class Rectangle(Base):
 
     def display(self):
         """ display """
+
         if (self.width == 0 or self.height == 0):
             print("")
         else:
+            for n in range(self.y):
+                print("")
             for i in range(self.height):
+                for k in range(self.x):
+                    print(" ", end="")
                 for j in range(self.width):
                     print("#", end="")
                 print("")
+
+    def __str__(self):
+        """ info """
+        return ("[Rectangle] ({}) {}/{} - {}/{}".format
+                (self.id, self.x, self.y, self.width, self.height))
+
+    

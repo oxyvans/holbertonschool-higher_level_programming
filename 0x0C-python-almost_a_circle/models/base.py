@@ -30,11 +30,10 @@ class Base:
         """ salve """
         if list_objs is None:
             lis = []
-        else:
-            for i in list_objs:
-                lis = lis.append(cls.to_dictionary(i))
-            res = cls.to_json_string(lis)
-            filename = ("{}.json".format(cls.__name__))
+        for i in list_objs:
+            lis.append(cls.to_dictionary(i))
+        res = cls.to_json_string(lis)
+        filename = ("{}.json".format(cls.__name__))
 
         with open(filename, "w", encoding="utf-8") as f:
             f.write(res)

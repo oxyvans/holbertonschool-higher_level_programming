@@ -28,9 +28,9 @@ class Base:
     @classmethod
     def save_to_file(cls, list_objs):
         """ salve """
+        lis = []
         if list_objs is None:
-            lis = []
-        lis[]
+            list_objs = []
         for i in list_objs:
             lis.append(cls.to_dictionary(i))
         res = cls.to_json_string(lis)

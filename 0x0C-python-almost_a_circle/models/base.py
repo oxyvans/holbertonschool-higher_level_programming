@@ -1,6 +1,10 @@
 #!/usr/bin/python3
 """ Almost a circle """
 
+
+import json
+
+
 class Base:
     """ base class """
 
@@ -13,3 +17,10 @@ class Base:
             self.id =  Base.__nb_objects
         else:
             self.id = id
+
+    @staticmethod
+    def to_json_string(list_dictionaries):
+        """ to json string """
+        if list_dictionaries is None:
+            return []
+        return json.dumps(list_dictionaries)

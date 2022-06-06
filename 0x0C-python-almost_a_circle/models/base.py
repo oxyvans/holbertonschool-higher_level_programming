@@ -38,3 +38,11 @@ class Base:
 
         with open(filename, "w", encoding="utf-8") as f:
             f.write(res)
+
+    @staticmethod
+    def from_json_string(json_string):
+        """ from j a s """
+        if json_string is None:
+            return []
+        else:
+            return json.loads(json_string)

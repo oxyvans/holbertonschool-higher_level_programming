@@ -32,7 +32,7 @@ class Base:
             lis = []
         else:
             for i in list_objs:
-                lis.append(cls.to_dictionary(i))
+                lis = lis.append(cls.to_dictionary(i))
             res = cls.to_json_string(lis)
             filename = ("{}.json".format(cls.__name__))
 

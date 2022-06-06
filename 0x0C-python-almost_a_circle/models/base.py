@@ -28,6 +28,8 @@ class Base:
     @classmethod
     def save_to_file(cls, list_objs):
         """ salve """
+        if list_objs is None:
+            return []
         lis = []
         for i in list_objs:
             lis.append(cls.to_dictionary(i))

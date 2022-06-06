@@ -56,3 +56,18 @@ class Base:
             res = cls(1)
         res.update(**dictionary)
         return res
+
+    @classmethod
+    def load_from_file(cls):
+        """ load from file """
+        filename = "{}.json".format(cls.__name__)
+        try:
+            with open(filename, encoding="utf-8") as f:
+                info = f.read()
+        except FileNotFoundError:
+            return []
+        lis = cls.from_json_string(info)
+        ins = []
+        for i in lis:
+            ins.append(cls.create(**i))
+        return ins

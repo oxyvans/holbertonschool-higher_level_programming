@@ -9,3 +9,5 @@ Object.entries(dict).forEach(key => {
     res[key[1]] = [key[0]];
   }
 });
+
+console.log(res);

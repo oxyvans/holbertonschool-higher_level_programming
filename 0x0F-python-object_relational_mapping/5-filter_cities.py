@@ -18,8 +18,11 @@ try:
                             WHERE states.name=%s\
                                 ORDER BY cities.id ASC", (STATE,))
     rows = cur.fetchall()
+    res = []
     for row in rows:
-        print(row)
+        res.append(row[0])
+    print(res, sep=', ')
+    cur.close()
     db.close()
     
 except Exception:

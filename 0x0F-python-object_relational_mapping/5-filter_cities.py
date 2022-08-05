@@ -21,7 +21,7 @@ try:
     res = []
     for row in rows:
         res.append(row[0])
-    print(res, sep=', ')
+    print(*res, sep=', ')
     cur.close()
     db.close()
     

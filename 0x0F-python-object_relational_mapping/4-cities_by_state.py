@@ -10,7 +10,7 @@ if __name__ == "__main__":
     DB = argv[3]
 
 try:
-    db = MySQL.connect(host=HOST, port=PORT, user=USER, passwd=PASS, db=DB)
+    db = MySQLdb.connect(host=HOST, port=PORT, user=USER, passwd=PASS, db=DB)
     cur = db.cursor()
     cur.execute("SELECT city.id, city.name, state.name FROM cities city, states state WHERE state.id = city.state_id ORDER BY city.id")
     rows = cur.fetchall()

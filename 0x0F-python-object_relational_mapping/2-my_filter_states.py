@@ -8,6 +8,7 @@ if __name__ == "__main__":
     USER = argv[1]
     PASS = argv[2]
     DB = argv[3]
+    STATE = argv[4]
 
 try:
     db = MySQLdb.connect(host=HOST, port=PORT, user=USER, passwd=PASS, db=DB)

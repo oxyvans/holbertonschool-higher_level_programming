@@ -1,22 +1,19 @@
 #!/usr/bin/python3
-""" task 7 """
+""" SQLAlchemy """
+
+
+from sqlalchemy import create_engine, Column
 from sys import argv
-from sqlalchemy.orm import sessionmaker
 from model_state import Base, State
+from sqlalchemy.orm import sessionmaker
 
-from sqlalchemy import (create_engine)
 
-USER = argv[1]
-PASS = argv[2]
-DB = argv[3]
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'
-                           .format(USER, PASS, DB))
+                           .format(argv[1], argv[2], argv[3]))
     Base.metadata.create_all(engine)
-    Session = sessionmaker()
-    Session.configure(bind=engine)
+    Session = sessionmaker(bind=engine)
     session = Session()
-    for state in session.query(State).order_by(State.id).all():
-        print("{}: {}".format(state.id, state.name))
+    for i in session.query(State).order_by(State.id):
+        print('{}: {}'.format(i.id, i.name))
     session.close()

@@ -12,12 +12,13 @@ if __name__ == "__main__":
 try:
     db = MySQLdb.connect(host=HOST, port=PORT, user=USER, passwd=PASS, db=DB)
     cur = db.cursor()
-    cur.execute("SELECT city.id, city.name, state.name FROM cities city, states state WHERE state.id = city.state_id ORDER BY city.id")
+    cur.execute("SELECT city.id, city.name, state.name FROM cities city,\
+                states state WHERE state.id = city.state_id ORDER BY city.id")
     rows = cur.fetchall()
     for row in rows:
         print(row)
     cur.close()
     db.close()
-    
+
 except Exception:
     print("Error")

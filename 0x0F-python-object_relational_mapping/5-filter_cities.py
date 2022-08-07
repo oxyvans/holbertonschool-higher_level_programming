@@ -24,6 +24,6 @@ try:
     print(*res, sep=', ')
     cur.close()
     db.close()
-    
+
 except Exception:
     print("Error")

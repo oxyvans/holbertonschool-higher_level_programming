@@ -18,6 +18,6 @@ try:
         print(row)
     cur.close()
     db.close()
-    
+
 except Exception:
     print("Error")

@@ -13,12 +13,13 @@ if __name__ == "__main__":
 try:
     db = MySQLdb.connect(host=HOST, port=PORT, user=USER, passwd=PASS, db=DB)
     cur = db.cursor()
-    cur.execute("SELECT id, name FROM states WHERE name=%s ORDER BY id ASC", (STATE,))
+    cur.execute("SELECT id, name FROM states WHERE name=%s ORDER BY id ASC",
+                (STATE,))
     rows = cur.fetchall()
     for row in rows:
         print(row)
     cur.close()
     db.close()
-    
+
 except Exception:
     print("Error")

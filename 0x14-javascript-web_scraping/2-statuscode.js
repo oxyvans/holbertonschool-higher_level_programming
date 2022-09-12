@@ -1,5 +1,5 @@
 #!/usr/bin/node
-//task 2
+// task 2
 //
 const axios = require('axios');
 axios.get(process.argv[2]).then(function (response) {

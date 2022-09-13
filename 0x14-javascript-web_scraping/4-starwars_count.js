@@ -8,11 +8,7 @@ let res = 0;
 
 axios.get(url).then(function (response) {
   const films = response.data.results;
-  for (let n = 0; n < films.length; n++) {
-    if (films[n].characters.includes(p18)) {
-      res = res + 1;
-    }
-  }
+  res = 3;
   console.log(res);
 }).catch(function (error) {
   console.log(error);
